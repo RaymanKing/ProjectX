@@ -13,6 +13,10 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
+
+import modelo.Trabajadores;
+import beans.*;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
@@ -69,7 +73,7 @@ public class Login {
 		ButtonLogin.setFont(new Font("Sitka Small", Font.BOLD, 17));
 		ButtonLogin.setBounds(163, 214, 115, 23);
 		frmRayoo.getContentPane().add(ButtonLogin);
-		Fondo.setIcon(new ImageIcon("C:\\Users\\enrik\\Desktop\\ProyectoProgramacion\\ProyectoBeer\\ProyectoX\\src\\images\\bar.jpg"));
+		Fondo.setIcon(new ImageIcon("src\\images\\bar.jpg"));
 		Fondo.setBounds(0, 0, 434, 261);
 		frmRayoo.getContentPane().add(Fondo);
 		frmRayoo.setVisible(true);
@@ -83,7 +87,10 @@ public class Login {
 				String dni = JPuser.getText();
 				String password = JPpassword.getText();
 				// Y llama al chequeo del usuario
-				new controlador.Login().checkUser(dni, password);
+				boolean check = new controlador.Login().checkUser(dni, password);
+				if(check) {
+					Window frame = new Window();	
+				}
 			}
 		});
 		
