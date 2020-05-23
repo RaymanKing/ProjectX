@@ -10,9 +10,9 @@ public class Login {
 
 	// Chequeo del Login
 	
-	public boolean checkUser(String dni, String password) {
-		boolean userCheck = new modelo.Trabajadores().checkUserAndPass(dni, password);
-		if(userCheck) {
+	public void checkUser(String dni, String password) {
+		Trabajador trabajador = new modelo.Trabajadores().getTrabajador(dni, password);
+		if(trabajador.getIdUser() != 0) {
 			int userRol = new modelo.Trabajadores().checkRol(dni, password);
 			// Llamada al metodo que crea un objeto trabajador con todos sus datos
 			Trabajador trabajadorOn = modelo.Trabajadores.getTrabajador(dni,password);
@@ -26,17 +26,10 @@ public class Login {
 				JOptionPane.showMessageDialog(null, "Buenos dias camarero al curro");
 				// Añadir ventana con restricciones
 			}
+			new controlador.Fichero().escrituraFichero(dni);
+			vista.Menu frame = new vista.Menu(trabajador);
 		}else {
 			JOptionPane.showMessageDialog(null, "Usuario incorrecto");
-			userCheck = false;
 		}
-		return userCheck;
 	}
-	
-	// Recogida de datos
-	
-	
-	//Trabajador trabajadorOn = Trabajadores.getTrabajador(dni, password);
-	//trabajadorOn = Trabajadores.getTrabajador(dni, password);
-	
 }

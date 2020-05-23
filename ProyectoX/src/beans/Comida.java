@@ -19,6 +19,12 @@ public class Comida {
 		this.price_unit = price_unit;
 	}
 	
+	public Comida(int idFood, String name, float price_unit) {
+		this.idFood = idFood;
+		this.name = name;
+		this.price_unit = price_unit;
+	}
+	
 	// Getter y setters
 	
 	public int getIdFood() {

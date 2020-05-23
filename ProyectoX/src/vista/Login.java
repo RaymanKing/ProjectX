@@ -35,14 +35,13 @@ public class Login {
 	public Login() {
 		initialize();
 	}
-
 	
 	private void initialize() {
 		// Detalles de la ventana
 		frmRayoo = new JFrame();
 		frmRayoo.getContentPane().setBackground(Color.LIGHT_GRAY);
 		frmRayoo.setTitle("JaBaR");
-		frmRayoo.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\images\\beer.png"));
+		frmRayoo.setIconImage(Toolkit.getDefaultToolkit().getImage("images\\beer.png"));
 		frmRayoo.setLocationRelativeTo(null);
 		frmRayoo.setBounds(100, 100, 450, 300);
 		frmRayoo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,7 +72,7 @@ public class Login {
 		ButtonLogin.setFont(new Font("Sitka Small", Font.BOLD, 17));
 		ButtonLogin.setBounds(163, 214, 115, 23);
 		frmRayoo.getContentPane().add(ButtonLogin);
-		Fondo.setIcon(new ImageIcon("src\\images\\bar.jpg"));
+		Fondo.setIcon(new ImageIcon("images\\bar.jpg"));
 		Fondo.setBounds(0, 0, 434, 261);
 		frmRayoo.getContentPane().add(Fondo);
 		frmRayoo.setVisible(true);
@@ -87,10 +86,7 @@ public class Login {
 				String dni = JPuser.getText();
 				String password = JPpassword.getText();
 				// Y llama al chequeo del usuario
-				boolean check = new controlador.Login().checkUser(dni, password);
-				if(check) {
-					Window frame = new Window();	
-				}
+				new controlador.Login().checkUser(dni, password);	
 			}
 		});
 		
