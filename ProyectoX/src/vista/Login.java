@@ -1,79 +1,75 @@
 package vista;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JPasswordField;
-import java.awt.BorderLayout;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JTextArea;
-import javax.swing.JTextPane;
-import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Color;
-import javax.swing.JPanel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
-public class Login {
+public class Login extends JFrame {
 
-	private JFrame frmRayoo;
-	private JPasswordField passwordField;
+	private JPanel panelLogin;
 	private JTextField JPuser;
 	private JPasswordField JPpassword;
-	private final JLabel Fondo = new JLabel("New label");
+	private JLabel User;
+	private final JLabel Fondo = new JLabel();
+	private JLabel Password; 
+	private JButton ButtonLogin;
 
 	
 	public Login() {
-		initialize();
-	}
-
-	
-	private void initialize() {
-		// Detalles de la ventana
-		frmRayoo = new JFrame();
-		frmRayoo.getContentPane().setBackground(Color.LIGHT_GRAY);
-		frmRayoo.setTitle("JaBaR");
-		frmRayoo.setIconImage(Toolkit.getDefaultToolkit().getImage("src\\images\\beer.png"));
-		frmRayoo.setLocationRelativeTo(null);
-		frmRayoo.setBounds(100, 100, 450, 300);
-		frmRayoo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmRayoo.getContentPane().setLayout(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		panelLogin = new JPanel();
+		panelLogin.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(panelLogin);
+		setIconImage(Toolkit.getDefaultToolkit().getImage("images\\beer.png"));
+		setLocationRelativeTo(null);
+		setVisible(true);
+		panelLogin.setLayout(null);
 		
 		JPuser = new JTextField();
 		JPuser.setBounds(156, 73, 180, 20);
-		frmRayoo.getContentPane().add(JPuser);
+		panelLogin.add(JPuser);
 		JPuser.setColumns(10);
 		
 		JPpassword = new JPasswordField();
 		JPpassword.setBounds(156, 149, 180, 20);
-		frmRayoo.getContentPane().add(JPpassword);
+		panelLogin.add(JPpassword);
 		
-		JLabel User = new JLabel("DNI");
+		User = new JLabel("DNI");
+		User.setHorizontalAlignment(SwingConstants.CENTER);
 		User.setForeground(Color.WHITE);
 		User.setFont(new Font("Sitka Small", Font.BOLD, 30));
 		User.setBounds(25, 63, 91, 50);
-		frmRayoo.getContentPane().add(User);
+		panelLogin.add(User);
 		
-		JLabel Password = new JLabel("Password");
+		Password = new JLabel("Password");
 		Password.setForeground(Color.WHITE);
 		Password.setFont(new Font("Sitka Small", Font.BOLD, 25));
 		Password.setBounds(10, 140, 162, 34);
-		frmRayoo.getContentPane().add(Password);
+		panelLogin.add(Password);
 		
-		JButton ButtonLogin = new JButton("A currar");
+		ButtonLogin = new JButton("A currar");
 		ButtonLogin.setFont(new Font("Sitka Small", Font.BOLD, 17));
-		ButtonLogin.setBounds(163, 214, 115, 23);
-		frmRayoo.getContentPane().add(ButtonLogin);
-		Fondo.setIcon(new ImageIcon("C:\\Users\\enrik\\Desktop\\ProyectoProgramacion\\ProyectoBeer\\ProyectoX\\src\\images\\bar.jpg"));
-		Fondo.setBounds(0, 0, 434, 261);
-		frmRayoo.getContentPane().add(Fondo);
-		frmRayoo.setVisible(true);
+		ButtonLogin.setBounds(163,214,115,23);
+		panelLogin.add(ButtonLogin);
 		
+		Fondo.setIcon(new ImageIcon("images\\bar.jpg"));
+		Fondo.setBounds(0, 0, 434, 261);
+		panelLogin.add(Fondo);
 		
 		// Acciones del login
 		
@@ -83,10 +79,16 @@ public class Login {
 				String dni = JPuser.getText();
 				String password = JPpassword.getText();
 				// Y llama al chequeo del usuario
-				new controlador.Login().checkUser(dni, password);
+				boolean cerrar = new controlador.Login().checkUser(dni, password);
+				if(cerrar) {
+					dispose();
+				}
 			}
 		});
 		
 		
+		
+		
 	}
+
 }
