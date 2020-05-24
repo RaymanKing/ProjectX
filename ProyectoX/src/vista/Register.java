@@ -65,6 +65,7 @@ public class Register extends JFrame {
 		setBounds(0, 0, 500, 500);
 		getContentPane().setLayout(null);
 		registerPanel.setLayout(null);
+		setLocationRelativeTo(null);
 
 		// Campos de recogida de datos
 

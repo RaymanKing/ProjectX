@@ -28,6 +28,7 @@ public class Login {
 			}
 			new controlador.Fichero().escrituraFichero(dni);
 			vista.Menu frame = new vista.Menu(trabajador);
+			
 		}else {
 			JOptionPane.showMessageDialog(null, "Usuario incorrecto");
 		}

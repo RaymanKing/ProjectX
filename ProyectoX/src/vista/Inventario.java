@@ -22,6 +22,8 @@ import beans.Pedido;
 import beans.Trabajador;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import java.awt.SystemColor;
 
 public class Inventario extends JFrame {
 
@@ -31,6 +33,7 @@ public class Inventario extends JFrame {
 	private JLabel fondoInventario;
 	private JLabel txtInventario;
 	private JButton buttonTabla;
+	private JButton buttonAddComida;
 
 	
 	public Inventario(Trabajador trabajador) {
@@ -71,22 +74,62 @@ public class Inventario extends JFrame {
 		buttonTabla.setBounds(660, 21, 128, 47);
 		panelInventario.add(buttonTabla);
 		
+		
+		
+		JButton buttonDeleteComida = new JButton("Eliminar");
+		buttonDeleteComida.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.DeleteComida frame = new vista.DeleteComida(trabajador);
+				dispose();
+			}
+		});
+		buttonDeleteComida.setFont(new Font("Sitka Small", Font.BOLD, 17));
+		buttonDeleteComida.setBounds(1032, 320, 128, 72);
+		panelInventario.add(buttonDeleteComida);
+		
+		buttonAddComida = new JButton("A\u00F1adir");
+		buttonAddComida.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.AddComida frame = new vista.AddComida(trabajador);
+				dispose();
+			}
+		});
+		buttonAddComida.setFont(new Font("Sitka Small", Font.BOLD, 17));
+		buttonAddComida.setBounds(1032, 418, 128, 72);
+		panelInventario.add(buttonAddComida);
+		
+		JButton buttonAdd = new JButton("A\u00F1adir");
+		buttonAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				vista.Add frame = new vista.Add(trabajador);
+				dispose();
+			}
+		});
+		buttonAdd.setFont(new Font("Sitka Small", Font.BOLD, 17));
+		buttonAdd.setBounds(1032, 145, 128, 72);
+		panelInventario.add(buttonAdd);
+		
+		JLabel txtAddUnidades = new JLabel("Unidades");
+		txtAddUnidades.setBackground(UIManager.getColor("Button.light"));
+		txtAddUnidades.setFont(new Font("Sitka Small", Font.BOLD, 20));
+		txtAddUnidades.setHorizontalAlignment(SwingConstants.CENTER);
+		txtAddUnidades.setBounds(1032, 108, 128, 26);
+		panelInventario.add(txtAddUnidades);
+		
+		
+		
+		JLabel lblComidas = new JLabel("Comidas");
+		lblComidas.setHorizontalAlignment(SwingConstants.CENTER);
+		lblComidas.setFont(new Font("Sitka Small", Font.BOLD, 20));
+		lblComidas.setBackground(SystemColor.controlHighlight);
+		lblComidas.setBounds(1032, 262, 128, 26);
+		panelInventario.add(lblComidas);
+		
 		fondoInventario = new JLabel("");
 		fondoInventario.setBounds(0, 0, 1184, 749);
 		fondoInventario.setIcon(new ImageIcon("images\\fondo.jpg"));
 		panelInventario.add(fondoInventario);
 		
-<<<<<<< HEAD
-=======
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(1052, 105, 89, 23);
-		panelInventario.add(btnNewButton);
-		
-		JButton button = new JButton("New button");
-		button.setBounds(1052, 225, 89, 23);
-		panelInventario.add(button);
-		
->>>>>>> caja
 		setVisible(true);
 		setLocationRelativeTo(null);
 		
@@ -133,5 +176,8 @@ public class Inventario extends JFrame {
         scrollPane.setBounds(108,121,898,589);
         getContentPane().add(scrollPane);
         
+        
+      
+		
 	}
 }

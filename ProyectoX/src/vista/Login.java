@@ -46,6 +46,7 @@ public class Login {
 		frmRayoo.setBounds(100, 100, 450, 300);
 		frmRayoo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRayoo.getContentPane().setLayout(null);
+		frmRayoo.setLocationRelativeTo(null);
 		
 		JPuser = new JTextField();
 		JPuser.setBounds(156, 73, 180, 20);
@@ -76,6 +77,8 @@ public class Login {
 		Fondo.setBounds(0, 0, 434, 261);
 		frmRayoo.getContentPane().add(Fondo);
 		frmRayoo.setVisible(true);
+		
+		
 		
 		
 		// Acciones del login
