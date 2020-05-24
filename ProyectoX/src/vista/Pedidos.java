@@ -79,7 +79,7 @@ public class Pedidos extends JFrame {
 		mesasPedidos.add(tipo);
 		tipo.add("Bebidas");
 		tipo.add("Cervezas");
-		tipo.add("Vino Afrutado");
+		tipo.add("Vino afrutado");
 		tipo.add("Riojas");
 		tipo.add("Verdejos");
 		tipo.add("Finos");

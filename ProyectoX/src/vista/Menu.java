@@ -63,7 +63,11 @@ public class Menu extends JFrame {
 		JButton buttonCaja = new JButton("");
 		buttonCaja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
 				vista.Caja frame = new vista.Caja(trabajador);
+=======
+				vista.CajaFrame frame = new vista.CajaFrame(trabajador);
+>>>>>>> caja
 				dispose();
 			}
 		});

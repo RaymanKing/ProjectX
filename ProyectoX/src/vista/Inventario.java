@@ -76,6 +76,17 @@ public class Inventario extends JFrame {
 		fondoInventario.setIcon(new ImageIcon("images\\fondo.jpg"));
 		panelInventario.add(fondoInventario);
 		
+<<<<<<< HEAD
+=======
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBounds(1052, 105, 89, 23);
+		panelInventario.add(btnNewButton);
+		
+		JButton button = new JButton("New button");
+		button.setBounds(1052, 225, 89, 23);
+		panelInventario.add(button);
+		
+>>>>>>> caja
 		setVisible(true);
 		setLocationRelativeTo(null);
 		
