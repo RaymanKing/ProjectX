@@ -57,5 +57,37 @@ public class Pedidos{
 		Conexion.EjecutarUpdate("INSERT INTO pedidos VALUES ('"+idTable+"','"+idFood+"','"+cantidad+"','"+comentario+"','"+precio+"');");
 		JOptionPane.showMessageDialog(null, "Pedido realizado correctamente");
 	}
-
+	
+	public ArrayList <Pedido> recogerPedido(int idTable) {
+		ResultSet pedido = Conexion.EjecutarSentencia("SELECT * FROM pedidos where IdTable = '"+idTable+"'");
+		ArrayList <Pedido> pedidos = new ArrayList <Pedido>();
+		try {
+			while(pedido.next()) {
+			Pedido pedidoActual = new Pedido();
+			int idFood = pedido.getInt("IdFood");
+			int cantidad = pedido.getInt("Quantity");
+			float precio = pedido.getFloat("Price");
+			pedidoActual = new Pedido(idTable, idFood, cantidad, precio);
+			pedidos.add(pedidoActual);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return pedidos;
+		
+	}
+	
+	public int comprobarNumeroPedidos(int numeroMesa) {
+		ResultSet pedidoActual = Conexion.EjecutarSentencia("SELECT COUNT(IdTable) as numeroTotal from pedidos Where IdTable = '"+numeroMesa+"';");
+		int numPedidos = 0;
+		try {
+			if(pedidoActual.next()) {
+				numPedidos = pedidoActual.getInt("numeroTotal");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return numPedidos;
+	}
+	
 }

@@ -58,5 +58,55 @@ public class Fichero {
 		}
 		return text;
 	}
+	
+	public void escrituraTipo(int tipo) {
+
+		FileWriter escribirTipo;
+
+		BufferedWriter buferTipo;
+
+		PrintWriter printTipo;
+
+		try {
+
+			escribirTipo = new FileWriter("ficheros\\RecordarTipo.txt");
+
+			buferTipo = new BufferedWriter(escribirTipo);
+			printTipo = new PrintWriter(escribirTipo);
+			escribirTipo.write(tipo);
+
+			escribirTipo.close();
+			buferTipo.close();
+
+		} catch (IOException e1) {
+			System.out.println("No se ha podido escribir en el archivo.");
+			e1.printStackTrace();
+		}
+
+	}
+	
+	public String leerTipo() {
+		String text = null;
+		try {
+
+			FileReader leerTipo = new FileReader("ficheros\\RecordarTipo.txt");
+			BufferedReader br = new BufferedReader(leerTipo);
+
+			int c = 0;
+			String texto = "";
+			
+
+			while ((texto = br.readLine()) != null) {
+				text = texto;
+			}
+
+			
+
+		} catch (IOException e) {
+			System.out.println("No se ha encontrado el archivo");
+			e.printStackTrace();
+		}
+		return text;
+	}
 
 }

@@ -19,6 +19,14 @@ public class Pedido {
 		this.price = price;
 	}
 	
+	// Constructor para mostrar en la tabla de la mesa sin el comentario
+	public Pedido(int idTable, int idFood, int quantity, float price) {
+		this.idTable = idTable;
+		this.idFood = idFood;
+		this.quantity = quantity;
+		this.price = price;
+	}
+	
 	// Getters y setters
 	
 	public int getIdTable() {

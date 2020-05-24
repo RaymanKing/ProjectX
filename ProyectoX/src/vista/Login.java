@@ -29,7 +29,7 @@ public class Login {
 	private JPasswordField passwordField;
 	private JTextField JPuser;
 	private JPasswordField JPpassword;
-	private final JLabel Fondo = new JLabel("New label");
+	private final JLabel Fondo = new JLabel("");
 
 	
 	public Login() {
