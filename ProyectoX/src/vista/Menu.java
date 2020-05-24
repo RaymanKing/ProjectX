@@ -63,7 +63,7 @@ public class Menu extends JFrame {
 		JButton buttonCaja = new JButton("");
 		buttonCaja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				vista.Caja frame = new vista.Caja(trabajador);
+				vista.CajaFrame frame = new vista.CajaFrame(trabajador);
 				dispose();
 			}
 		});
@@ -133,6 +133,7 @@ public class Menu extends JFrame {
         
 		
 		this.setVisible(true);
+		setLocationRelativeTo(null);
 		
 		
 	}

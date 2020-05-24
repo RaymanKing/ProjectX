@@ -63,4 +63,33 @@ public class Comidas {
 		}
 		return comidas;
 	}
+	
+	public int idComida(String nombre) {
+		ResultSet resultado = Conexion.EjecutarSentencia("SELECT IdFood FROM comidas WHERE Name = '"+nombre+"' ;");
+		int id = 0;
+		try {
+			if(resultado.next()) {
+				id = resultado.getInt("IdFood");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return id;
+	}
+	
+	public void addComida(int id ,int cantidad) {
+		Conexion.EjecutarUpdate("UPDATE comidas SET Stock = Stock + "+cantidad+" WHERE IdFood = "+id+"");
+		JOptionPane.showMessageDialog(null, "Cantidad añadida al inventario.");
+	}
+	
+	public void crearComida(String nombre, int tipo, int stock, float precio) {
+		Conexion.EjecutarUpdate("INSERT INTO comidas (Name, Type, Stock, Price_Unit) VALUES ('"+nombre+"','"+tipo+"','"+stock+"','"+precio+"');");
+		JOptionPane.showMessageDialog(null, "Producto añadido al inventario y a la carta.");
+	}
+	
+	public void eliminarComida(int id) {
+		Conexion.EjecutarUpdate("DELETE FROM comidas WHERE IdFood = '"+id+"';");
+		JOptionPane.showMessageDialog(null, "Producto eliminado correctamente.");
+	}
+	
 }
