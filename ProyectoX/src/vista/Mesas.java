@@ -99,12 +99,16 @@ public class Mesas extends JFrame {
 		panelMesas.add(txtComanda);
 		
 		JButton pay = new JButton("");
-		pay.setIcon(new ImageIcon("C:\\Users\\enrik\\Desktop\\ProyectoProgramacion\\ProyectoBeer\\ProyectoX\\images\\pay.jpg"));
+		pay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		pay.setIcon(new ImageIcon("images\\pay.jpg"));
 		pay.setBounds(1085, 86, 89, 107);
 		panelMesas.add(pay);
 		
 		JButton menos = new JButton("");
-		menos.setIcon(new ImageIcon("C:\\Users\\enrik\\Desktop\\ProyectoProgramacion\\ProyectoBeer\\ProyectoX\\images\\menos.jpg"));
+		menos.setIcon(new ImageIcon("images\\menos.jpg"));
 		menos.setBounds(1099, 250, 75, 77);
 		panelMesas.add(menos);
 		
@@ -146,32 +150,26 @@ public class Mesas extends JFrame {
 			int idTable = pedidos.get(i).getIdTable();
 			String idMesa = String.valueOf(idTable);
 			data[i][o] = idMesa;
-			System.out.println(idTable);
 			o++;
 			int idFood = pedidos.get(i).getIdFood();
 			String nomComida = new modelo.Comidas().traerNomComida(idFood);
-			System.out.println(o+" "+i);
 			data[i][o] = nomComida;
-			System.out.println(nomComida);
 			o++;
 			int cantidad = pedidos.get(i).getQuantity();
 			String cant = String.valueOf(cantidad);
 			data[i][o] = cant;
-			System.out.println(cant);
 			o++;
 			float precio = pedidos.get(i).getPrice();
 			String price = String.valueOf(precio);
-			data[i][o] = price;
-			System.out.println(price);			
+			data[i][o] = price;			
 		}
-		System.out.println("He llegado");
+		
 		
         String header[] = { "Número de mesa", "Comida/Bebida", "Cantidad", "Precio total" };
 
         // Table
         JTable table = new JTable(data,header);
         table.setEnabled(false);
-
 
         // ScrollPane
         JScrollPane scrollPane = new JScrollPane(table);

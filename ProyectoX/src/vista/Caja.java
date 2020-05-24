@@ -7,13 +7,17 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
+import beans.Pedido;
 import beans.Trabajador;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class Caja extends JFrame {
@@ -53,7 +57,6 @@ public class Caja extends JFrame {
 		setVisible(true);
 		setLocationRelativeTo(null);
 		
-		
-	}
+	}	
 
 }

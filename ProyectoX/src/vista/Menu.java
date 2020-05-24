@@ -61,6 +61,12 @@ public class Menu extends JFrame {
 		if(trabajador.getRol() == 101) {
 			
 		JButton buttonCaja = new JButton("");
+		buttonCaja.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.Caja frame = new vista.Caja(trabajador);
+				dispose();
+			}
+		});
 		buttonCaja.setIcon(new ImageIcon("images\\registradora.jpg"));
 		buttonCaja.setBounds(32, 155, 61, 58);
 		getContentPane().add(buttonCaja);
@@ -85,6 +91,12 @@ public class Menu extends JFrame {
 		if(trabajador.getRol() == 2 || trabajador.getRol() == 101) {
 			
 		JButton almacen = new JButton("");
+		almacen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.Inventario frame = new vista.Inventario(trabajador);
+				dispose();
+			}
+		});
 		almacen.setIcon(new ImageIcon("images\\almacen.jpg"));
 		almacen.setBounds(32, 292, 89, 74);
 		getContentPane().add(almacen);
