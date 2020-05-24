@@ -133,6 +133,7 @@ public class Menu extends JFrame {
         
 		
 		this.setVisible(true);
+		setLocationRelativeTo(null);
 		
 		
 	}

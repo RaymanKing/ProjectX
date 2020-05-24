@@ -25,6 +25,13 @@ public class Comida {
 		this.price_unit = price_unit;
 	}
 	
+	public Comida(String name, int type, int stock, float price_unit) {
+		this.name = name;
+		this.type = type;
+		this.stock = stock;
+		this.price_unit = price_unit;
+	}
+	
 	// Getter y setters
 	
 	public int getIdFood() {

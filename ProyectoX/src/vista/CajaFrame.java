@@ -22,9 +22,12 @@ import beans.Trabajador;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class CajaFrame extends JFrame {
 
@@ -34,8 +37,11 @@ public class CajaFrame extends JFrame {
 	private JLabel fondoCaja;
 	private JLabel txtCaja;
 	private JButton buttonCaja;
+	private JButton buttonCambio;
+	private JTextField txtEuros;
+	private JLabel txtCambio;
+	private JTextField txtCentimos;
 
-	
 	public CajaFrame(Trabajador trabajador) {
 		this.trabajador = trabajador;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,13 +51,13 @@ public class CajaFrame extends JFrame {
 		panelCaja.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(panelCaja);
 		panelCaja.setLayout(null);
-		
+
 		txtCaja = new JLabel("Caja");
 		txtCaja.setHorizontalAlignment(SwingConstants.CENTER);
 		txtCaja.setFont(new Font("Sitka Small", Font.BOLD, 48));
 		txtCaja.setBounds(257, 10, 333, 77);
 		panelCaja.add(txtCaja);
-		
+
 		buttonCaja = new JButton("Ver");
 		buttonCaja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -59,10 +65,10 @@ public class CajaFrame extends JFrame {
 				cargaAutomatica();
 			}
 		});
-		buttonCaja.setFont(new Font("Sitka Small", Font.BOLD, 25));
-		buttonCaja.setBounds(660, 21, 128, 47);
+		buttonCaja.setFont(new Font("Sitka Small", Font.BOLD, 48));
+		buttonCaja.setBounds(564, 25, 128, 47);
 		panelCaja.add(buttonCaja);
-		
+
 		volverAtras = new JButton("");
 		volverAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -73,24 +79,78 @@ public class CajaFrame extends JFrame {
 		volverAtras.setIcon(new ImageIcon("images\\volverAtras.jpg"));
 		volverAtras.setBounds(10, 10, 82, 77);
 		panelCaja.add(volverAtras);
-		
+
+		buttonCambio = new JButton("Cambio");
+		buttonCambio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String vacio = "";
+				if (!txtEuros.getText().equals(vacio) && !txtCentimos.getText().equals(vacio)
+						|| !txtEuros.getText().equals(vacio) && txtCentimos.getText().equals(vacio)
+						|| txtEuros.getText().equals(vacio) && !txtCentimos.getText().equals(vacio)) {
+					String euros = txtEuros.getText();
+					String centimos = txtCentimos.getText();
+					String precio = euros + "." + centimos;
+					float precioFloat = 0;
+					precioFloat = Float.parseFloat(precio);
+					Caja caja = new modelo.Cajas().recogerUltCaja();
+					new modelo.Cajas().insertarCambio(caja, precioFloat);
+				} else {
+					JOptionPane.showMessageDialog(null, "Introduce el cambio");
+				}
+			}
+		});
+		buttonCambio.setFont(new Font("Sitka Small", Font.BOLD, 40));
+		buttonCambio.setBounds(925, 76, 225, 47);
+		panelCaja.add(buttonCambio);
+
+		txtEuros = new JTextField();
+		txtEuros.setText("Euros");
+		txtEuros.setHorizontalAlignment(SwingConstants.CENTER);
+		txtEuros.setBounds(925, 25, 72, 47);
+		panelCaja.add(txtEuros);
+		txtEuros.setColumns(10);
+		txtEuros.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				txtEuros.setText("");
+			}
+		});
+
+		txtCambio = new JLabel("Inserta Cambio :");
+		txtCambio.setFont(new Font("Sitka Small", Font.BOLD, 20));
+		txtCambio.setBounds(729, 31, 192, 47);
+		panelCaja.add(txtCambio);
+
+		txtCentimos = new JTextField();
+		txtCentimos.setText("Céntimos");
+		txtCentimos.setHorizontalAlignment(SwingConstants.CENTER);
+		txtCentimos.setColumns(10);
+		txtCentimos.setBounds(1023, 25, 72, 47);
+		panelCaja.add(txtCentimos);
+		txtCentimos.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				txtCentimos.setText("");
+			}
+		});
+
 		fondoCaja = new JLabel("");
 		fondoCaja.setIcon(new ImageIcon("images\\fondo.jpg"));
 		fondoCaja.setBounds(0, 0, 1184, 749);
 		panelCaja.add(fondoCaja);
-		
+
 		setVisible(true);
 		setLocationRelativeTo(null);
-		
-	}	
-	
-public void cargaAutomatica() {
-		
+
+	}
+
+	public void cargaAutomatica() {
+
 		ArrayList<Caja> cajas = new modelo.Cajas().recogerDatosCaja();
 		int numeroDeEntradas = new modelo.Cajas().entradaDeDatos();
-		
+
 		String data[][] = new String[numeroDeEntradas][5];
-		for(int i = 0; i < numeroDeEntradas; i++) {
+		for (int i = 0; i < numeroDeEntradas; i++) {
 			int o = 0;
 			int recibo = cajas.get(i).getIdReceipt();
 			String idRecibo = String.valueOf(recibo);
@@ -110,21 +170,20 @@ public void cargaAutomatica() {
 			o++;
 			Date fecha = cajas.get(i).getTransactionDate();
 			String fechaT = String.valueOf(fecha);
-			data[i][o] = fechaT;		
+			data[i][o] = fechaT;
 		}
-		
-		
-        String header[] = { "Id Recibo", "Cantidad", "Caja actual", "Caja final","Día" };
 
-        // Table
-        JTable table = new JTable(data,header);
-        table.setEnabled(false);
+		String header[] = { "Id Recibo", "Cantidad", "Caja actual", "Caja final", "Día" };
 
-        // ScrollPane
-        JScrollPane scrollPane = new JScrollPane(table);
-        scrollPane.setBounds(108,121,898,589);
-        getContentPane().add(scrollPane);
-        
+		// Table
+		JTable table = new JTable(data, header);
+		table.setEnabled(false);
+
+		// ScrollPane
+		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.setBounds(108, 121, 898, 589);
+		getContentPane().add(scrollPane);
+
 	}
 
 }

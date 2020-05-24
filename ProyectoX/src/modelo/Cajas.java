@@ -3,6 +3,9 @@ package modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
 import java.sql.Date;
 
 import bbdd.Conexion;
@@ -43,5 +46,31 @@ public class Cajas {
 		return entradas;
 	}
 	
+	public void insertarCambio(Caja caja, float cantidad) {		
+		float currentBox = caja.getCurrentBox();
+		float finalBox = caja.getFinalBox();
+		float cantidadActual = finalBox + cantidad;
+		Date transaction = new Date(System.currentTimeMillis());
+		Conexion.EjecutarUpdate("INSERT INTO caja VALUES (0,'"+cantidad+"','"+currentBox+"','"+cantidadActual+"','"+transaction+"')");
+		JOptionPane.showMessageDialog(null, "Cambio añadido correctamente");
+	}
+	
+	public Caja recogerUltCaja() {
+		ResultSet resultado = Conexion.EjecutarSentencia("SELECT * FROM caja ORDER BY TransactionDate DESC LIMIT 1 ;");
+		Caja caja = new Caja();
+		try {
+			if(resultado.next()) {
+				int id = resultado.getInt("IdReceipt");
+				float amount = resultado.getFloat("Amount");
+				float currentBox = resultado.getFloat("CurrentBox");
+				float finalBox = resultado.getFloat("FinalBox");
+				Date transaction = resultado.getDate("TransactionDate");
+				caja = new Caja(id,amount,currentBox,finalBox,transaction);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return caja;
+	}
 	
 }
