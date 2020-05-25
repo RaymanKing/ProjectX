@@ -13,13 +13,13 @@ La primera instalación ĺa realizará el desarrollados del programa que será e
 
 * 3. Guía de primer uso.
 El desarrollador te dejará el usuario administrador registrado para poder comenzar con el proceso.
-	1.- En primer lugar te tendras que longuear con la cuenta administrador y registrar tu perfil con el rol de administrador en el apartado registros que sale en el centro del menu del programa. Recuerda de registrarte con el rol de administrador.
-	2.- En segundo lugar de deslogueas en el botón que trae el signo de Off en el menú y te longueas en el programa.
-	3.- En tercer lugar tendrás que registrar a tus trabajadores con sus permisos correspondientes. Atento : el camarero solo podrá gestionar las mesas y los pagos, y el encargado del almacén puede gestionar las mesas y el inventario, para rellenar el inventario, añadir cantidades o productos nuevos o eliminar un producto del inventario.
-	4.- Antes de que entren tus empleados tendrás que importar el cambio a la caja para poder empezar con una cantidad para posibles cambios.
-	5.- Una vez importado el cambio es hora de que tus empleados se puedan longuear y poder realizar los pedidos que son muy fácil de hacer y intuitivos.
-	6.- Cuando tengas los pedidos podrás en el apartado mesas de la mesa seleccionadad ver su comanda, eliminarle un pedido o una cantidad de ese pedido.
-	7.- Por último podrás realizar el pago en efectivo o en tarjeta.
+	* En primer lugar te tendras que longuear con la cuenta administrador y registrar tu perfil con el rol de administrador en el apartado registros que sale en el centro del menu del programa. Recuerda de registrarte con el rol de administrador.
+	* En segundo lugar de deslogueas en el botón que trae el signo de Off en el menú y te longueas en el programa.
+	* En tercer lugar tendrás que registrar a tus trabajadores con sus permisos correspondientes. Atento : el camarero solo podrá gestionar las mesas y los pagos, y el encargado del almacén puede gestionar las mesas y el inventario, para rellenar el inventario, añadir cantidades o productos nuevos o eliminar un producto del inventario.
+	* Antes de que entren tus empleados tendrás que importar el cambio a la caja para poder empezar con una cantidad para posibles cambios.
+	* Una vez importado el cambio es hora de que tus empleados se puedan longuear y poder realizar los pedidos que son muy fácil de hacer y intuitivos.
+	* Cuando tengas los pedidos podrás en el apartado mesas de la mesa seleccionadad ver su comanda, eliminarle un pedido o una cantidad de ese pedido.
+	* Por último podrás realizar el pago en efectivo o en tarjeta.
 
 * 4.Desarrollador.
 	1.- Enrique Rapela Castejón.
