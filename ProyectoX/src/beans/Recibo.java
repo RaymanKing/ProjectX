@@ -1,6 +1,6 @@
 package beans;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Recibo {
 
@@ -25,6 +25,14 @@ public class Recibo {
 		this.wayToPay = wayToPay;
 	}
 	
+	public Recibo(int idTable, int idUser, String nameWaiter, float price, Date transactionDate) {
+		this.idTable = idTable;
+		this.idUser = idUser;
+		this.nameWaiter = nameWaiter;
+		this.price = price;
+		this.transactionDate = transactionDate;
+	}
+	
 	// Getter y setters
 	
 	public int getIdReceipt() {
@@ -43,7 +51,7 @@ public class Recibo {
 		this.idTable = idTable;
 	}
 	
-	public int getIdUser(int idUser) {
+	public int getIdUser() {
 		return this.idUser;
 	}
 	
@@ -57,6 +65,14 @@ public class Recibo {
 	
 	public void setNameWaiter(String nameWaiter) {
 		this.nameWaiter = nameWaiter;
+	}
+	
+	public float getPrice() {
+		return this.price;
+	}
+	
+	public void setPrice(float Price) {
+		this.price = price;
 	}
 	
 	public Date getTransactionDate() {

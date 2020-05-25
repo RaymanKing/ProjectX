@@ -21,6 +21,6 @@ public class Register {
 		Date registered = trabajadorRegistered.getRegisteredDay();
 		String password = trabajadorRegistered.getPassword();
 		int rol = trabajadorRegistered.getRol();
-		Conexion.EjecutarUpdate("INSERT INTO trabajadores (First_name,Last_name,Date_of_birth,DNI,Number_tlf,Registered_day,Password,Rol) VALUES ('"+nombre+"','"+apellidos+"','"+nacimiento+"','"+dni+"','"+telefono+"','"+registered+"','"+password+"','"+rol+"');");
+		Conexion.EjecutarUpdate("INSERT INTO trabajadores (First_name,Last_name,Date_of_birth,DNI,Number_tlf,Registered_day,Password,Rol) VALUES ('"+nombre+"','"+apellidos+"','"+nacimiento+"','"+dni+"','"+telefono+"','"+registered+"','"+password+"','"+rol+"')");
 	}
 }

@@ -10,7 +10,7 @@ public class Login {
 
 	// Chequeo del Login
 	
-	public void checkUser(String dni, String password) {
+	public boolean checkUser(String dni, String password) {
 		Trabajador trabajador = new modelo.Trabajadores().getTrabajador(dni, password);
 		if(trabajador.getIdUser() != 0) {
 			int userRol = new modelo.Trabajadores().checkRol(dni, password);
@@ -28,9 +28,11 @@ public class Login {
 			}
 			new controlador.Fichero().escrituraFichero(dni);
 			vista.Menu frame = new vista.Menu(trabajador);
+			return true;
 			
 		}else {
 			JOptionPane.showMessageDialog(null, "Usuario incorrecto");
+			return false;
 		}
 	}
 }

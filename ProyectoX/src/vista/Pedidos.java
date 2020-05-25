@@ -128,6 +128,7 @@ public class Pedidos extends JFrame {
 						// Método para iterar sobre la misma lista, realiza la acción entre parentesis
 						// por cada comida hace -> la siguiente iteraccion
 						// Expresión lambda -------------->
+						eleccionProducto.removeAll();
 						comidas.forEach(comida -> {eleccionProducto.add(comida.getName());});
 						/*for(Comida comida : comidas) {
 						/*	eleccionProducto.add(comida.getName());
@@ -136,61 +137,73 @@ public class Pedidos extends JFrame {
 						JOptionPane.showMessageDialog(null, "Seleccionado cervezas");
 						int tipo = 2;
 						ArrayList <Comida> comidas = new modelo.Pedidos().recogerComidas(tipo);
+						eleccionProducto.removeAll();
 						comidas.forEach(comida -> {eleccionProducto.add(comida.getName());});
 					}else if(eleccion.equals(afrutado)) {
 						JOptionPane.showMessageDialog(null, "Seleccionado vino afrutado");
 						int tipo = 3;
 						ArrayList <Comida> comidas = new modelo.Pedidos().recogerComidas(tipo);
+						eleccionProducto.removeAll();
 						comidas.forEach(comida -> {eleccionProducto.add(comida.getName());});
 					}else if(eleccion.equals(riojas)) {
 						JOptionPane.showMessageDialog(null, "Seleccionado riojas");
 						int tipo = 4;
 						ArrayList <Comida> comidas = new modelo.Pedidos().recogerComidas(tipo);
+						eleccionProducto.removeAll();
 						comidas.forEach(comida -> {eleccionProducto.add(comida.getName());});
 					}else if(eleccion.equals(verdejos)) {
 						JOptionPane.showMessageDialog(null, "Seleccionado verdejos");
 						int tipo = 5;
 						ArrayList <Comida> comidas = new modelo.Pedidos().recogerComidas(tipo);
+						eleccionProducto.removeAll();
 						comidas.forEach(comida -> {eleccionProducto.add(comida.getName());});
 					}else if(eleccion.equals(finos)) {
 						JOptionPane.showMessageDialog(null, "Seleccionado finos");
 						int tipo = 6;
 						ArrayList <Comida> comidas = new modelo.Pedidos().recogerComidas(tipo);
+						eleccionProducto.removeAll();
 						comidas.forEach(comida -> {eleccionProducto.add(comida.getName());});
 					}else if(eleccion.equals(tapas)) {
 						JOptionPane.showMessageDialog(null, "Seleccionado tapas");
 						int tipo = 7;
 						ArrayList <Comida> comidas = new modelo.Pedidos().recogerComidas(tipo);
+						eleccionProducto.removeAll();
 						comidas.forEach(comida -> {eleccionProducto.add(comida.getName());});
 					}else if(eleccion.equals(ibericos)) {
 						JOptionPane.showMessageDialog(null, "Seleccionado ibéricos");
 						int tipo = 8;
 						ArrayList <Comida> comidas = new modelo.Pedidos().recogerComidas(tipo);
+						eleccionProducto.removeAll();
 						comidas.forEach(comida -> {eleccionProducto.add(comida.getName());});
 					}else if(eleccion.equals(marisco)) {
 						JOptionPane.showMessageDialog(null, "Seleccionado marisco");
 						int tipo = 9;
 						ArrayList <Comida> comidas = new modelo.Pedidos().recogerComidas(tipo);
+						eleccionProducto.removeAll();
 						comidas.forEach(comida -> {eleccionProducto.add(comida.getName());});
 					}else if(eleccion.equals(pescado)) {
 						JOptionPane.showMessageDialog(null, "Seleccionado pescado");
 						int tipo = 10;
 						ArrayList <Comida> comidas = new modelo.Pedidos().recogerComidas(tipo);
+						eleccionProducto.removeAll();
 						comidas.forEach(comida -> {eleccionProducto.add(comida.getName());});
 					}else if(eleccion.equals(carnes)) {
 						JOptionPane.showMessageDialog(null, "Seleccionado carnes");
 						int tipo = 11;
 						ArrayList <Comida> comidas = new modelo.Pedidos().recogerComidas(tipo);
+						eleccionProducto.removeAll();
 						comidas.forEach(comida -> {eleccionProducto.add(comida.getName());});
 					}else if(eleccion.equals(especiales)) {
 						JOptionPane.showMessageDialog(null, "Seleccionado especiales");
 						int tipo = 12;
 						ArrayList <Comida> comidas = new modelo.Pedidos().recogerComidas(tipo);
+						eleccionProducto.removeAll();
 						comidas.forEach(comida -> {eleccionProducto.add(comida.getName());});
 					}else if(eleccion.equals(postres)) {
 						JOptionPane.showMessageDialog(null, "Seleccionado postres");
 						int tipo = 13;
 						ArrayList <Comida> comidas = new modelo.Pedidos().recogerComidas(tipo);
+						eleccionProducto.removeAll();
 						comidas.forEach(comida -> {eleccionProducto.add(comida.getName());});
 					}
 				}

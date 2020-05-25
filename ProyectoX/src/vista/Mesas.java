@@ -101,6 +101,9 @@ public class Mesas extends JFrame {
 		JButton pay = new JButton("");
 		pay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int mesaNumero = Integer.parseInt(choiceMesa.getSelectedItem());
+				vista.Pay frame = new vista.Pay(trabajador, mesaNumero);
+				dispose();
 			}
 		});
 		pay.setIcon(new ImageIcon("images\\pay.jpg"));
@@ -108,9 +111,19 @@ public class Mesas extends JFrame {
 		panelMesas.add(pay);
 		
 		JButton menos = new JButton("");
+		menos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// Quitar elemento de la comanda
+				int mesaNumero = Integer.parseInt(choiceMesa.getSelectedItem());
+				vista.QuitarProducto frame = new vista.QuitarProducto(trabajador, mesaNumero);
+				dispose();
+			}
+		});
 		menos.setIcon(new ImageIcon("images\\menos.jpg"));
 		menos.setBounds(1099, 250, 75, 77);
 		panelMesas.add(menos);
+		
+		
 		
 		
 		fondoMesas = new JLabel("");
@@ -175,6 +188,8 @@ public class Mesas extends JFrame {
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBounds(108,121,898,589);
         getContentPane().add(scrollPane);
+        
+        
         
 	}
 }

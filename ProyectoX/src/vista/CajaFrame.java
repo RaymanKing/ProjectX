@@ -41,6 +41,7 @@ public class CajaFrame extends JFrame {
 	private JTextField txtEuros;
 	private JLabel txtCambio;
 	private JTextField txtCentimos;
+	private JLabel lblInfo;
 
 	public CajaFrame(Trabajador trabajador) {
 		this.trabajador = trabajador;
@@ -84,9 +85,12 @@ public class CajaFrame extends JFrame {
 		buttonCambio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String vacio = "";
-				if (!txtEuros.getText().equals(vacio) && !txtCentimos.getText().equals(vacio)
-						|| !txtEuros.getText().equals(vacio) && txtCentimos.getText().equals(vacio)
-						|| txtEuros.getText().equals(vacio) && !txtCentimos.getText().equals(vacio)) {
+				String c = "Céntimos";
+				String eu = "Euros";
+				if (txtEuros.getText().equals(vacio) || txtCentimos.getText().equals(vacio)
+						|| txtCentimos.getText().equals(c) || txtEuros.getText().equals(eu)) {
+					JOptionPane.showMessageDialog(null, "Inserta el cambio");
+				} else {
 					String euros = txtEuros.getText();
 					String centimos = txtCentimos.getText();
 					String precio = euros + "." + centimos;
@@ -94,13 +98,12 @@ public class CajaFrame extends JFrame {
 					precioFloat = Float.parseFloat(precio);
 					Caja caja = new modelo.Cajas().recogerUltCaja();
 					new modelo.Cajas().insertarCambio(caja, precioFloat);
-				} else {
-					JOptionPane.showMessageDialog(null, "Introduce el cambio");
+					
 				}
 			}
 		});
 		buttonCambio.setFont(new Font("Sitka Small", Font.BOLD, 40));
-		buttonCambio.setBounds(925, 76, 225, 47);
+		buttonCambio.setBounds(935, 76, 220, 40);
 		panelCaja.add(buttonCambio);
 
 		txtEuros = new JTextField();
@@ -133,6 +136,12 @@ public class CajaFrame extends JFrame {
 				txtCentimos.setText("");
 			}
 		});
+		
+		lblInfo = new JLabel("Con Id de recibo 0, ser\u00E1n los cambios insertados por el administrador en la caja");
+		lblInfo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInfo.setFont(new Font("Sitka Small", Font.BOLD, 14));
+		lblInfo.setBounds(10, 724, 603, 14);
+		panelCaja.add(lblInfo);
 
 		fondoCaja = new JLabel("");
 		fondoCaja.setIcon(new ImageIcon("images\\fondo.jpg"));

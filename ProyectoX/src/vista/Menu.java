@@ -88,7 +88,7 @@ public class Menu extends JFrame {
 		getContentPane().add(register);
 		}
 		
-		if(trabajador.getRol() == 2 || trabajador.getRol() == 101) {
+		if(trabajador.getRol() == 1 || trabajador.getRol() == 101) {
 			
 		JButton almacen = new JButton("");
 		almacen.addActionListener(new ActionListener() {

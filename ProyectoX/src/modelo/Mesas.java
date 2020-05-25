@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import bbdd.Conexion;
+import beans.Pedido;
 
 public class Mesas {
 
@@ -27,11 +28,11 @@ public class Mesas {
 	
 	
 	public float recogerTotal(int numero) {
-		ResultSet resultado = Conexion.EjecutarSentencia("SELECT * FROM pedidos WHERE IdTable = '"+numero+"';");
+		ResultSet resultado = Conexion.EjecutarSentencia("SELECT Price FROM pedidos WHERE IdTable = '"+numero+"';");
 		float sumatorio = 0;
 		try {
 			while(resultado.next()) {
-				float suma = resultado.getInt("Price");
+				float suma = resultado.getFloat("Price");
 				sumatorio = suma + sumatorio;
 			}
 		} catch (SQLException e) {
@@ -39,4 +40,10 @@ public class Mesas {
 		}
 		return sumatorio;
 	}
+	
+	public void limpiarMesa(int numero) {
+		Conexion.EjecutarUpdate("DELETE FROM pedidos where IdTable = '"+numero+"'");
+		
+	}
+	
 }

@@ -19,6 +19,7 @@ public class Pedido {
 		this.price = price;
 	}
 	
+	
 	// Constructor para mostrar en la tabla de la mesa sin el comentario
 	public Pedido(int idTable, int idFood, int quantity, float price) {
 		this.idTable = idTable;
@@ -72,7 +73,7 @@ public class Pedido {
 	// To string
 	
 	public String toString() {
-		return "La mesa con id "+idTable+" tiene la comida con el id "+idFood+" con la cantidad de "+quantity+" unidades con el precio de "+price+" euros. Con comentario especial "+commentary+" .";
+		return "La mesa con id "+idTable+" tiene un total de "+price+" euros.";
 	}
 	
 }

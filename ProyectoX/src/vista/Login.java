@@ -25,9 +25,10 @@ public class Login extends JFrame {
 	private JPasswordField JPpassword;
 	private JLabel User;
 	private final JLabel Fondo = new JLabel();
-	private JLabel Password;
+	private JLabel Password; 
 	private JButton ButtonLogin;
 
+	
 	public Login() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -38,40 +39,40 @@ public class Login extends JFrame {
 		setLocationRelativeTo(null);
 		setVisible(true);
 		panelLogin.setLayout(null);
-
+		
 		JPuser = new JTextField();
 		JPuser.setBounds(156, 73, 180, 20);
 		panelLogin.add(JPuser);
 		JPuser.setColumns(10);
-
+		
 		JPpassword = new JPasswordField();
 		JPpassword.setBounds(156, 149, 180, 20);
 		panelLogin.add(JPpassword);
-
+		
 		User = new JLabel("DNI");
 		User.setHorizontalAlignment(SwingConstants.CENTER);
 		User.setForeground(Color.WHITE);
 		User.setFont(new Font("Sitka Small", Font.BOLD, 30));
 		User.setBounds(25, 63, 91, 50);
 		panelLogin.add(User);
-
+		
 		Password = new JLabel("Password");
 		Password.setForeground(Color.WHITE);
 		Password.setFont(new Font("Sitka Small", Font.BOLD, 25));
 		Password.setBounds(10, 140, 162, 34);
 		panelLogin.add(Password);
-
+		
 		ButtonLogin = new JButton("A currar");
 		ButtonLogin.setFont(new Font("Sitka Small", Font.BOLD, 17));
-		ButtonLogin.setBounds(163, 214, 115, 23);
+		ButtonLogin.setBounds(163,214,115,23);
 		panelLogin.add(ButtonLogin);
-
+		
 		Fondo.setIcon(new ImageIcon("images\\bar.jpg"));
 		Fondo.setBounds(0, 0, 434, 261);
 		panelLogin.add(Fondo);
-
+		
 		// Acciones del login
-
+		
 		ButtonLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Recoges lo datos introducidos en los campos y los guarda en esas variables
@@ -79,12 +80,15 @@ public class Login extends JFrame {
 				String password = JPpassword.getText();
 				// Y llama al chequeo del usuario
 				boolean cerrar = new controlador.Login().checkUser(dni, password);
-				if (cerrar) {
+				if(cerrar) {
 					dispose();
 				}
 			}
 		});
-
+		
+		
+		
+		
 	}
 
 }

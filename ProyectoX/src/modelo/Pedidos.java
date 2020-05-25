@@ -90,4 +90,40 @@ public class Pedidos{
 		return numPedidos;
 	}
 	
+	public float recogerTotal(int numeroMesa) {
+		ResultSet resultado = Conexion.EjecutarSentencia("SELECT Price FROM pedidos WHERE IdTable = '"+numeroMesa+"'; ");
+		float total = 0;
+		try {
+			if(resultado.next()) {
+				float precio = resultado.getFloat("Price");
+				total = total + precio;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return total;
+	}
+	
+	public int recogerCantidad(int id) {
+		ResultSet resultado = Conexion.EjecutarSentencia("SELECT Quantity FROM pedidos WHERE IdFood = '"+id+"';");
+		int cantidad = 0;
+		try {
+			if(resultado.next()) {
+				cantidad = resultado.getInt("Quantity");
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return cantidad;
+	}
+	
+	public void borrarPedido(int id, int cantidad) {
+		Conexion.EjecutarUpdate("DELETE FROM pedidos WHERE IdFood = '"+id+"' AND Quantity = '"+cantidad+"';");
+		JOptionPane.showMessageDialog(null, "Pedido eliminado correctamente");
+	}
+	
+	public void actualizarPedido(int id, int cantidad,int numEleccion) {
+		Conexion.EjecutarUpdate("UPDATE pedidos SET Quantity = Quantity - '"+numEleccion+"' WHERE IdFood = '"+id+"' AND Quantity = '"+cantidad+"';");
+		JOptionPane.showMessageDialog(null, "Pedido actualizado");
+	}
 }

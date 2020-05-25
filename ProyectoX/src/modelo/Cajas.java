@@ -10,6 +10,7 @@ import java.sql.Date;
 
 import bbdd.Conexion;
 import beans.Caja;
+import beans.Recibo;
 
 public class Cajas {
 
@@ -71,6 +72,16 @@ public class Cajas {
 			e.printStackTrace();
 		}
 		return caja;
+	}
+	
+	public void insertarRecibo(Recibo recibo, Caja caja) {
+		int idRecibo = recibo.getIdReceipt();
+		float precio = recibo.getPrice();
+		float currentBox = caja.getFinalBox();
+		float finalBox = caja.getFinalBox();
+		finalBox = precio + finalBox;
+		Date transaction = recibo.getTransactionDate();
+		Conexion.EjecutarUpdate("INSERT INTO caja VALUES ('"+idRecibo+"','"+precio+"','"+currentBox+"','"+finalBox+"','"+transaction+"')");	
 	}
 	
 }
