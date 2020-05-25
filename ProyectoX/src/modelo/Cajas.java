@@ -53,11 +53,11 @@ public class Cajas {
 		float cantidadActual = finalBox + cantidad;
 		Date transaction = new Date(System.currentTimeMillis());
 		Conexion.EjecutarUpdate("INSERT INTO caja VALUES (0,'"+cantidad+"','"+currentBox+"','"+cantidadActual+"','"+transaction+"')");
-		JOptionPane.showMessageDialog(null, "Cambio añadido correctamente");
+		JOptionPane.showMessageDialog(null, "Cambio aÃ±adido correctamente");
 	}
 	
 	public Caja recogerUltCaja() {
-		ResultSet resultado = Conexion.EjecutarSentencia("SELECT * FROM caja ORDER BY TransactionDate DESC LIMIT 1 ;");
+		ResultSet resultado = Conexion.EjecutarSentencia("SELECT * FROM caja ORDER BY IdReceipt DESC LIMIT 1 ;");
 		Caja caja = new Caja();
 		try {
 			if(resultado.next()) {
