@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3307
--- Tiempo de generación: 25-05-2020 a las 03:44:59
+-- Tiempo de generación: 25-05-2020 a las 03:51:13
 -- Versión del servidor: 8.0.18
 -- Versión de PHP: 7.3.16
 
@@ -36,17 +36,6 @@ CREATE TABLE `caja` (
   `FinalBox` float(7,2) NOT NULL,
   `TransactionDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
-
---
--- Volcado de datos para la tabla `caja`
---
-
-INSERT INTO `caja` (`IdReceipt`, `Amount`, `CurrentBox`, `FinalBox`, `TransactionDate`) VALUES
-(0, 50.00, 0.00, 50.00, '2020-05-25'),
-(10, 18.50, 50.00, 68.50, '2020-05-25'),
-(11, 2.00, 50.00, 52.00, '2020-05-25'),
-(12, 0.50, 50.00, 50.50, '2020-05-25'),
-(13, 0.50, 50.00, 50.50, '2020-05-25');
 
 -- --------------------------------------------------------
 
@@ -117,8 +106,7 @@ INSERT INTO `comidas` (`IdFood`, `Name`, `Type`, `Stock`, `Price_Unit`) VALUES
 (049, 'Tarta 3 chocolates', 13, 20, 4.50),
 (050, 'Tarta galletas', 13, 20, 4.50),
 (051, 'Flan casero', 13, 16, 3.50),
-(052, 'Natilla', 13, 20, 3.00),
-(054, 'Rabo de toro', 11, 20, 12.50);
+(052, 'Natilla', 13, 20, 3.00);
 
 -- --------------------------------------------------------
 
@@ -150,16 +138,6 @@ CREATE TABLE `recibos` (
   `WayToPay` varchar(20) COLLATE utf8mb4_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
 
---
--- Volcado de datos para la tabla `recibos`
---
-
-INSERT INTO `recibos` (`IdReceipt`, `IdTable`, `IdUser`, `NameWaiter`, `Price`, `TransactionDate`, `WayToPay`) VALUES
-(00010, 5, 001, 'Enrique', 18.50, '2020-05-25', 'Con tarjeta'),
-(00011, 1, 001, 'Enrique', 2.00, '2020-05-25', 'En efectivo'),
-(00012, 1, 020, 'Oscar', 0.50, '2020-05-25', 'Con tarjeta'),
-(00013, 2, 020, 'Oscar', 0.50, '2020-05-25', 'En efectivo');
-
 -- --------------------------------------------------------
 
 --
@@ -184,9 +162,7 @@ CREATE TABLE `trabajadores` (
 
 INSERT INTO `trabajadores` (`IdUser`, `First_name`, `Last_name`, `Date_of_birth`, `DNI`, `Number_tlf`, `Registered_day`, `Password`, `Rol`) VALUES
 (001, 'Enrique', 'Rapela Castejon', '1997-02-12', '48120363Q', 655427365, '2020-04-28', 'admin123', 101),
-(018, 'Gabriel', 'Super Programador', '3893-03-17', '12345678A', 656747838, '2020-05-22', '1234', 101),
-(020, 'Oscar', 'Padilla Valdes', '3900-05-09', '29565002C', 684062716, '2020-05-25', '12345', 1),
-(021, 'Marcos', 'Torres Segura', '3899-09-28', '29504958Y', 661266921, '2020-05-25', 'tusmuertosperro', 0);
+(018, 'Gabriel', 'Super Programador', '3893-03-17', '12345678A', 656747838, '2020-05-22', '1234', 101);
 
 --
 -- Índices para tablas volcadas
