@@ -1,7 +1,7 @@
 # ProjectX
-Nombre: (Todavía está en proceso)
-Descripción:
-Lenguaje utilizado:
-Información:
-Este será el repositorio en el que voy a crear mi proyecto sobre la caja y almacén de un bar
+Nombre: JaBaR
+Descripción: aplicación para la gestión de un bar o restaurante incluyendo gestión de mesas, pedidos, almacén y caja.
+Lenguaje utilizado: Java
+Información: En el manual que subiré lo vereis todo
+
 
