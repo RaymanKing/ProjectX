@@ -23,9 +23,9 @@ El desarrollador te dejará el usuario administrador registrado para poder comen
 	* Por último podrás realizar el pago en efectivo o en tarjeta.
 
 * 4.Desarrollador.
-	1.- Enrique Rapela Castejón.
-	2.- Contáctame : enrikerapela@gmail.com
-	3.- GitHub : https://github.com/RaymanKing/ProjectX.git
+	* Enrique Rapela Castejón.
+	* Contáctame : enrikerapela@gmail.com
+	* GitHub : https://github.com/RaymanKing/ProjectX.git
 
 Y listo hora de abrir tu restaurante o bar y esperar sacar provecho a esta aplicación que esta en V 1.0, llegarán más actualizaciones.
 
