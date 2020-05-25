@@ -22,7 +22,7 @@
 	* Cuando tengas los pedidos podrás en el apartado mesas de la mesa seleccionadad ver su comanda, eliminarle un pedido o una cantidad de ese pedido.
 	* Por último podrás realizar el pago en efectivo o en tarjeta.
 
-* 4.Desarrollador.
+* 4. Desarrollador.
 	* Enrique Rapela Castejón.
 	* Contáctame : enrikerapela@gmail.com
 	* GitHub : https://github.com/RaymanKing/ProjectX.git
