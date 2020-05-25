@@ -4,6 +4,7 @@
 * 2. Instalación.
 * 3. Guía de primer uso.
 * 4. Desarrollador.
+--------------------------------------------------
 
 * 1. Descripción.
 JaBaR es un programa dedicado a la organización de bares y restaurantes. Te permite poder tener el control total sobre tu empresa, gestionando y visualizando desde los pedidos de cada mesa, hasta la caja y los usuarios que tienes dentro, dandoles diferentes permisos.
