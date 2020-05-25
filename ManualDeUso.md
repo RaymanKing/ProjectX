@@ -7,13 +7,13 @@
 --------------------------------------------------
 
 * 1. Descripción.
-* JaBaR es un programa dedicado a la organización de bares y restaurantes. Te permite poder tener el control total sobre tu empresa, gestionando y visualizando desde los pedidos de cada mesa, hasta la caja y los usuarios que tienes dentro, dandoles diferentes permisos.
+	* JaBaR es un programa dedicado a la organización de bares y restaurantes. Te permite poder tener el control total sobre tu empresa, gestionando y visualizando desde los pedidos de cada mesa, hasta la caja y los usuarios que tienes dentro, dandoles diferentes permisos.
 
 * 2. Instalación.
-* La primera instalación ĺa realizará el desarrollados del programa que será el que te instalará la aplicación y la base de datos para mantener la conexión entre el programa y la base de datos.
+	* La primera instalación ĺa realizará el desarrollados del programa que será el que te instalará la aplicación y la base de datos para mantener la conexión entre el programa y la base de datos.
 
 * 3. Guía de primer uso.
-* El desarrollador te dejará el usuario administrador registrado para poder comenzar con el proceso.
+	* El desarrollador te dejará el usuario administrador registrado para poder comenzar con el proceso.
 	* En primer lugar te tendras que longuear con la cuenta administrador y registrar tu perfil con el rol de administrador en el apartado registros que sale en el centro del menu del programa. Recuerda de registrarte con el rol de administrador.
 	* En segundo lugar de deslogueas en el botón que trae el signo de Off en el menú y te longueas en el programa.
 	* En tercer lugar tendrás que registrar a tus trabajadores con sus permisos correspondientes. Atento : el camarero solo podrá gestionar las mesas y los pagos, y el encargado del almacén puede gestionar las mesas y el inventario, para rellenar el inventario, añadir cantidades o productos nuevos o eliminar un producto del inventario.
